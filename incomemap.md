@@ -1,6 +1,6 @@
 Title: GeoPandas and the Wealth of Nations
 Date: 2018-05-14
-Category: GepPandas
+Category: GeoPandas
 Tags: python, geopandas, choropleth, shapefile
 Slug: incomemap
 Authors: Don Cameron
@@ -139,14 +139,14 @@ ATO in this context is short for Australian Taxation Office.
 The standard data-exploration command `atodf.head()` yields output that looks (in part) like:
 
 |  |State/ Territory|Postcode2|Individuals 2003–04 no.|Median3 taxable income 2003–04 $|
-|--|----------------|---------|-----------------------|---------------|
-|0|ACT|2600|5692|42327|
+|---|----------------|---------|-----------------------|---------------|
+| 0 |ACT|2600|5692|42327|
 
 
 ## Dataframe Exploration ##
 
 So we have the PostCodes we want, and the Median taxable income earned by the taxpayers who live in that PostCode.
-Note that the income could have earned by activities in a PsotCode different from where the taxpayer lives, but I have chosen to ignore this.
+Note that the income could have earned by activities in a PostCode different from where the taxpayer lives, but I have chosen to ignore this.
 
 So lets do a bit more data exploration, finding the count of unique PostCode names in each dataframe (`atodf` holding tax data, and `goodpc`  holding PostCode boundary data).
 
@@ -199,7 +199,7 @@ Now, to show the PostCodes that the Tax Office knows about, but the Bureau of St
 
         In ato, but not abs {801, 804, 871, 811, 2379, 814, 881, 3665, 851, 821, 861, 831}
 
-And the PostCodes the Bureau of Stats knows that don't appear in the Tax Office spreadsheet:
+And the PostCodes the Bureau of Stats knows, that don't appear in the Tax Office spreadsheet:
 
         print(' in abs, but not ato', diff2)
 
@@ -209,7 +209,7 @@ And the PostCodes the Bureau of Stats knows that don't appear in the Tax Office 
 In fact, there are 322 PostCodes in the latter set.
 
 ## Explanation ##
-In fact, poking into the websites of both Government agencies, reasons emerge for the differences.
+In fact, poking into the websites of both Government agencies, reasons emerge for the differences.  First of all, some of the PostCodes known to the ATO could have been created after 2011 (the date of the ABS data).
 
 The ATO spreadsheet excludes PostCodes with so few people, that data privacy issues preclude including that data.  As we will see, this means that some PostCodes for remote areas (*very* sparsely settled) will have no income data.
 
