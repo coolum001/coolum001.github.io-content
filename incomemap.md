@@ -232,7 +232,7 @@ We can now merge the columns of the two dataframes side by side, by:
 
         result = pd.merge(goodato_df, goodpc, how='left', on=['POA_CODE'])
 
-A closer inspection shows us that the column titles have `newlines` embedded (a left-over glitch from the origianl Excel spreadsheet).
+A closer inspection shows us that the column titles have `newlines` embedded (a left-over glitch from the original Excel spreadsheet).
 
         result.columns.values
 
