@@ -1,6 +1,6 @@
 Title: OSMNX and Policing Response Times
 Date: 2018-08-02
-Category: OSMNX, GeoPandas, Cartopy
+Category: OSMNX
 Tags: python, geopandas, cartopy, osmnx
 Slug: policing
 Authors: Don Cameron
@@ -15,7 +15,7 @@ This time, I thought I would do something a little more serious than art works. 
 
 ## Data Sources ##
 
-The location of the polife station locations is https://data.qld.gov.au/dataset/qps-police-stations
+The location of the police station locations is https://data.qld.gov.au/dataset/qps-police-stations
 
 ## Mapping Design ##
 Because I wanted to underlay some geographic context to the visualization of the road network, I decided to go with Cartopy as the basic mapping software.
@@ -257,6 +257,8 @@ For each of the symbols that were added outside of GeoPandas, we create patches 
 ### Resulting Graphic ###
 
 ![ResponseMap]({filename}images/police01.png)
+
+A larger version is [here](images/police01.png)
 
 You can see the close-in nodes in yellow for both stations, and the color gradient as you get further away.  There is one node colored black at the top of the map (almost certainly a node that appear inaccessible, because of truncation by the bounding box), and one node with a response time greater than 15 minutes in the hinterland.
 
