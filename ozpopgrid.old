@@ -20,7 +20,7 @@ You can find the population grid GeoTIFF at http://www.abs.gov.au/ausstats/abs@.
 ## Data Exploration ##
 The first thing I did was to read the GeoTIFF, and work out what projection was used.
 
-    :::python3
+    :::python
     pop = gdal.Open('d:\\qml\\Australian_Population_Grid_2011.tif')
     data = pop.ReadAsArray()
     gt = pop.GetGeoTransform()
@@ -73,7 +73,7 @@ giving the following output.
 A couple of things jumped out at me.  
 
 * First, they are using an Albers Equal Area Projection in which to draw the mesh grid.  It makes sense to use
-a Equal Area projection (not to use one would be weird), but the choice of Albers is unexplained in any documentation I could find.  There is an European Union project that is very similar (GEOSTAT 1A ï¿½ Representing Census data
+a Equal Area projection (not to use one would be weird), but the choice of Albers is unexplained in any documentation I could find.  There is an European Union project that is very similar (GEOSTAT 1A – Representing Census data
 in a European population grid), that uses a different projection.  However, the EU case is made harder for the 
 statiticians because the EU has to match the use of grids in differing projections by its member states.  In any case they seem to be using
 a Lamberth Azimuthal Equal Area.
