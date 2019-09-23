@@ -1,0 +1,7 @@
+Title: Using a CNN to Locate Eyes in an Image
+Slug:cnneyes
+Date:2019-09-22
+Category:fastai
+Tags: fastai, ML, Machine Learning
+Author:Don Cameron
+Summary: Use fastai to build a CNN to locate eyes in a face image
