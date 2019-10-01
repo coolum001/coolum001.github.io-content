@@ -35,7 +35,7 @@ There was a recommendation on the reddit Python forum for a hosting / cloud comp
 
 ### PythonAnywhere ###
  
-I can strongly recommend them for vanilla-flavour Python-based web app hosting.  The main reasons are:
+I can strongly recommend PythonAnywhere for vanilla-flavour Python-based web app hosting.  The main reasons are:
 
 1. They required me to learn very little new technology.  Essentially I was given a Linux command line, and an upload button.  
 
@@ -46,7 +46,7 @@ I had a couple of happy little mistakes along the way (as Bob Ross would say).  
 
 ### Cloud Giants ###
 
-So then I set my sights on the giants of the Cloud, Microsoft Azure and Google Cloud.  Again (being a  cheap bastard), I cranked up free accounts on both.  Again, I learned that my app was too large for this.
+So then I set my sights on the giants of the Cloud: AWS, Microsoft Azure, and Google Cloud.  Again (being a  cheap bastard), I cranked up free accounts on all.  Again, I learned that my app was too large for this.
 
 Both Azure and Google know about Python 3 (although Google internally uses Python 2 - spit), and taking an app from a ```Git``` repository, but the process of running up the environment (via ```PIP```) always fell over in both providers with memory (or maybe disk limitations).  I could have moved to more expansive (read expensive) accounts, but decided against this, as I had heard horror stories of unexpected Cloud bills, due to some mis-configuration by the end-user.
 
@@ -54,11 +54,12 @@ As an example of unexpected consequences, at one stage Azure offered me the opti
 
 ![azurecli1]({filename}images/azurecli1.png)
 
+
 Where did that come from, I wondered: from my request for a Cloud Shell was the answer.
 
 ![azurecli2]({filename}images/azurecli2.png)
 
-I wonder how big this storage is, I wondered: could be quiet large I found - 6 GB is quite large by my standards.
+I wonder how big this storage is, I wondered: could be quite large I found - 6 GB is quite large by my standards.
 
 ![azurecli3]({filename}images/azurecli3.png)
 
@@ -69,7 +70,7 @@ Fortunately, the costs are not high (yet)
 
 ## Plan B ##
 
-So at this stage, I decided it was time to learn some new technology (maybe way past time).  Both Google Cloud, Amazon Web Services (AWS) and Microsoft Azure know about Docker images, and running them up as a web server.
+So at this stage, I decided it was time to learn some new technology (maybe way past time).  All of Google Cloud, Amazon Web Services (AWS) and Microsoft Azure know about Docker images, and running them up as a web server.
 
 ### Onwards to Docker ###
 Setting up a Docker image was relatively straight forward, but again there some glitches.  I chose the ```python:3.7-slim``` base image from Docker, and then discovered that the install process of ```pytorch``` needed some C libraries to be complied.  This then needed some C ```.h``` files to be installed.  Oh, and there was no C compiler, so that had to be installed as well.
@@ -115,17 +116,18 @@ torch
 
 Note the ```werkzeug>=0.15.3```: Github complains if you use a lower version, due to security issues.
 
-Now I suspect that I should have started with the pytorch base image, but "I am in blood Stepped in so far that should I wade no more. Returning were as tedious as go o'er.".  I got something that worked.
+Now I suspect that I should have started with the pytorch base image, but "I am in blood Stepped in so far that should I wade no more. Returning were as tedious as go o'er.".  I had something that worked.
 
 ### Docker Deployment ###
 
-From here on, it was pretty smooth: both Google Cloud and Microsoft Azure know about taking a Docker image, and running it up. Both Google and Microsoft have their own Docker image repositories, AWS is happy to take your image from DockerHub.
+From here on, it was pretty smooth: all of AWS, Google Cloud, and Microsoft Azure know about taking a Docker image, and running it up. Both Google and Microsoft have their own Docker image repositories, AWS is happy to take your image from DockerHub.
 
 Again some gotchas:  
 
-* Google requires you to use port 8080
+* Google requires you to use port 8080, and hence a different Docker image
 * Google requires a ```app.yaml``` file
 * AWS requires a ```Dockerrun.aws.json``` file to describe the deployment
+* The basic Azure payment plan I used did not support "always on", so a cold start of my app take 8 minutes or more!
 
 I had some problem with my AWS account in getting to use Elastic Beanstalk  (maybe because my account is a very old retail ```amazon.com``` account), but the support from AWS was first rate.  They actually rang me from the USA to help me out!
 
@@ -136,21 +138,24 @@ As a matter of interest, the screenshots below show the management consoles for 
 ### PythonAnywhere ###
 
 ![pythonanywhere]({filename}images/pythonanywhere.png)
+[Larger](images/pythonanywhere.png)
 
 
 ### Google Cloud ###
 
 ![googlecloud]({filename}images/googlecloud.png)
+[Larger](images/googlecloud.png)
 
 ### Azure###
 
 ![azure]({filename}images/azure.png)
+[Larger](images/azure.png)
 
 
 ### AWS ###
 
 ![aws]({filename}images/aws.png)
-
+[Larger](images/aws.png)
 
 
 
@@ -159,14 +164,14 @@ As a matter of interest, the screenshots below show the management consoles for 
 Some random thoughts:
 
 
-. Having initially  tripped over in developing on a different OS than my deployment OS, I have a new-found respect for Docker.  It is definitely a technology 
+* Having initially  tripped over in developing on a different OS than my deployment OS, I have a new-found respect for Docker.  It is definitely a technology 
 you should at least a nodding acquaintance  with. 
 
-. PythonAnywhere would be my recommendation for web app deployment of small to medium apps.  I haven't done a detailed cost analysis, but the fact you don't have to learn a mountain of new jargon is a plus.  Using any of the other Cloud providers for production would require learning a whole new jargon and set of concepts.
+* PythonAnywhere would be my recommendation for web app deployment of small to medium apps.  I haven't done a detailed cost analysis, but the fact you don't have to learn a mountain of new jargon is a plus.  Using any of the other Cloud providers for production would require learning a whole new jargon and set of concepts.
 
-. My experience in this event, and previous interactions with Amazon, is that AWS support is very good, and this would maybe be the deciding factor if I had to do this for real.
+* My experience in this event, and previous interactions with Amazon, is that AWS support is very good, and this would maybe be the deciding factor if I had to do this for real.
 
-.  A quote that I suspect is uncomfortably  true; *"Nobody has figured out how to make money from AI/ML,    other than by selling you a pile of compute and storage for your AI/ML misadventures".*
+*  A quote that I suspect is uncomfortably  true; *"Nobody has figured out how to make money from AI/ML,    other than by selling you a pile of compute and storage for your AI/ML misadventures".*
 
 
 
