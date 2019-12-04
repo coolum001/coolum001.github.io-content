@@ -1,0 +1,7 @@
+Title: Webserver for Fatal Road Crash Maps 
+Slug:foliumcrashmaps
+Date:2019-12-04
+Category:Folium
+Tags: folium flask
+Author:Don Cameron
+Summary: Use Folium and Flask to create a webserver to display maps of fatal road crashes in Queensland 
