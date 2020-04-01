@@ -1,0 +1,7 @@
+Title: Very Simple ANOVA Examples with pandas
+Slug:factsfromfigures
+Date:2020-04-01
+Category:ANOVA
+Tags: statistics scipy statsmodels
+Author:Don Cameron
+Summary: Worked examples of ANOVA (using pandas and statsmodels), taken from a pre-computers book, "Facts from Figures", M. J. Moroney
