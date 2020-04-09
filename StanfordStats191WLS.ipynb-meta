@@ -1,0 +1,7 @@
+Title: Stanford STATS191 in Python, Lecture 9 : Transformations and Weighted Least Squares
+Slug:stats19109
+Date:2020-04-09
+Category:scipy
+Tags: statistics scipy statsmodels
+Author:Don Cameron
+Summary: Regression models for non-linear datasets, or non constant-variance error terms, worked in Python
