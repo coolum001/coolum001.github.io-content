@@ -1,0 +1,7 @@
+Title: Stanford STATS191 in Python, Lecture 10 : Bootstrapping regression
+Slug:stats19111
+Date:2020-04-23
+Category:scipy
+Tags: statistics scipy statsmodels
+Author:Don Cameron
+Summary: Using Bootstrap techniques to get Confidence Intervals for models with non-Gaussian Noise
