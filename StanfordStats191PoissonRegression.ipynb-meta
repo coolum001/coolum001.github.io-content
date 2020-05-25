@@ -1,0 +1,7 @@
+Title: Stanford STATS191 in Python, Lecture 15 : Poisson Regression
+Slug:stats19115
+Date:2020-05-25
+Category: scipy
+Tags: statistics scipy statsmodels
+Author:Don Cameron
+Summary: Regression for count-style dependent outcomes
