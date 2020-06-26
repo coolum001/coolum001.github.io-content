@@ -1,0 +1,8 @@
+Title: Machine Learning Fail
+Slug:mlfail
+Date:2020-06-26
+Category:Machine Learning
+Tags: fastai
+Author:Don Cameron
+Summary: An example how lack on input data quality caused a subsequent ML failure
+
