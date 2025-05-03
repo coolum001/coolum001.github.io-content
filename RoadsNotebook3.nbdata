@@ -1,0 +1,8 @@
+Title: Geopandas spatial join performance
+Slug:sjoins
+Date:20250503
+Category:Visualization
+Tags: geopandas cartopy
+Author:Don Cameron
+Summary: Improving the performance of GeoPandas spatial joins
+
