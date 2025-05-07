@@ -1,0 +1,8 @@
+Title: GeoPandas, rasterio, and shipping
+Slug:dscale
+Date:20250507
+Category:Visualization
+Tags: geopandas rasterio
+Author:Don Cameron
+Summary: Converting a rasterio dataset to a GeoDataFrame
+
