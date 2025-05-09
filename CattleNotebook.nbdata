@@ -1,0 +1,8 @@
+Title: Cattle density raster visualization
+Slug:cattle
+Date:20250509
+Category:Visualization
+Tags: rasterio
+Author:Don Cameron
+Summary: Visualization of a rasterio dataset, by rasterio.show, and imshow
+
