@@ -1,0 +1,8 @@
+Title: Global air routes visualization
+Slug:airroute
+Date:20250510
+Category:Visualization
+Tags: geopandas shapely
+Author:Don Cameron
+Summary: Visualization of a global vector dataset (from a JSON dataset)
+
