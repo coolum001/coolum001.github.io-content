@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chronometer of Mortality</title>
+    <meta name="description" content="A mechanical calculation of expected life left.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mortality.css">
+</head>
+<body>
+    <div id="particles-container"></div>
+    <main class="container">
+        <header class="header">
+            <h1>Tempus Fugit</h1>
+            <p class="subtitle">The Chronometer of Mortality</p>
+        </header>
+
+        <section class="input-section" id="inputSection">
+            <div class="input-group">
+                <label for="birthdate">Enter Birthdate (YYYYMMDD)</label>
+                <input type="text" id="birthdate" maxlength="8" placeholder="e.g. 19900515" autocomplete="off" />
+                <div class="error-message" id="errorMessage">Please enter a valid format (YYYYMMDD)</div>
+            </div>
+            
+            <div class="toggle-group">
+                <label>Biological Sex</label>
+                <div class="toggle-container">
+                    <input type="radio" id="male" name="gender" value="male" checked>
+                    <label for="male" class="toggle-btn">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female" class="toggle-btn">Female</label>
+                </div>
+            </div>
+
+            <button id="calculateBtn" class="btn">Engage Mechanism</button>
+        </section>
+
+        <section class="results-section hidden" id="resultsSection">
+            <div class="stat-card">
+                <h2>Days Remaining</h2>
+                <div class="value mono" id="daysValue">0.00000</div>
+            </div>
+            <div class="stat-card">
+                <h2>Seconds Remaining</h2>
+                <div class="value mono" id="secondsValue">0.0</div>
+            </div>
+            <div class="stat-card">
+                <h2>Remaining Lifespan</h2>
+                <div class="sub-value" id="expectedLifespanDisplay">80 Years</div>
+            </div>
+            <button id="resetBtn" class="btn btn-secondary">Reset / Recalibrate</button>
+        </section>
+    </main>
+
+    <script src="mortality.js"></script>
+</body>
+</html>
