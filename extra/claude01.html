@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An eco-history in images, revisited</title>
+<style>
+:root{--bg:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--rule:#e1e0d9;--axis:#c3c2b7;--accent:#1c5cab;--s1:#2a78d6;--s2:#eb6834;--ok:#006300;--okbg:#e5f1e3;--rev:#8a4b00;--revbg:#f8ead2;--unc:#52514e;--uncbg:#ecebe6;--wasbg:#f1f0eb}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;--rule:#2c2c2a;--axis:#383835;--accent:#86b6ef;--s1:#3987e5;--s2:#d95926;--ok:#7fd47f;--okbg:#17301a;--rev:#f0c078;--revbg:#3a2a10;--unc:#c3c2b7;--uncbg:#2c2c2a;--wasbg:#1f1f1d}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Iowan Old Style","Times New Roman",serif}
+main{max-width:1180px;margin:0 auto;padding:32px 16px 80px}
+.col{max-width:720px;margin-left:auto;margin-right:auto}
+h1,h2,h3,.tag,.views,.nums,figcaption,table,.legend,.viewer,nav,.chart text,.meta,.keymap{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:1.45rem;margin:56px auto 12px;max-width:720px;line-height:1.25}
+h3{font-size:1.2rem;margin:0 0 14px;line-height:1.3}
+h3 .yr{display:inline-block;background:var(--ink);color:var(--bg);padding:1px 9px;border-radius:4px;margin-right:8px;font-variant-numeric:tabular-nums}
+p,ul,ol{max-width:720px;margin:0 auto 16px}
+ul,ol{padding-left:22px} li{margin-bottom:6px}
+a{color:var(--accent)}
+.meta{color:var(--ink2);font-size:.92rem}
+.lede{font-size:1.12rem}
+nav{max-width:720px;margin:20px auto 0;font-size:.9rem;display:flex;flex-wrap:wrap;gap:6px 14px}
+figure{margin:20px 0}
+figure img,.keymap img,.viewer img{display:block;width:100%;height:auto;border-radius:4px;background:#3e3e3e}
+figcaption{font-size:.86rem;color:var(--ink2);margin-top:6px;max-width:720px;margin-left:auto;margin-right:auto}
+figure.narrow{max-width:720px;margin-left:auto;margin-right:auto}
+.year{margin:44px 0;padding-top:28px;border-top:1px solid var(--rule)}
+.year h3{max-width:720px;margin-left:auto;margin-right:auto}
+.views{font-size:.86rem;color:var(--ink2);margin-top:-8px}
+.nums{display:flex;flex-wrap:wrap;gap:6px 28px;font-size:.92rem;color:var(--ink2)}
+.nums b{color:var(--ink);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.was{max-width:720px;margin:0 auto 16px;background:var(--wasbg);border-radius:6px;padding:12px 16px}
+.was p{margin-bottom:0;color:var(--ink2);font-style:italic}
+.was .tag{font-style:normal;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.verdict{text-transform:none;letter-spacing:0;font-weight:600;padding:1px 8px;border-radius:10px;margin-left:8px;white-space:nowrap}
+.verdict.ok{color:var(--ok);background:var(--okbg)} .verdict.rev{color:var(--rev);background:var(--revbg)} .verdict.unc{color:var(--unc);background:var(--uncbg)}
+.caveat{font-size:.95rem;color:var(--ink2);border-left:3px solid var(--axis);padding-left:14px}
+.keymap{position:relative;margin:20px 0 6px} .keymap svg{position:absolute;inset:0;width:100%;height:100%}
+.keymap text{font-size:40px;font-weight:600;fill:#fff;paint-order:stroke;stroke:rgba(0,0,0,.75);stroke-width:8px;stroke-linejoin:round}
+.keymap .big{font-size:44px} .keymap .blk{fill:none;stroke-width:7;stroke-dasharray:22 12}
+.keymap .b1{stroke:#86b6ef} .keymap .b2{stroke:#ffb38f} .keymap .b1t{fill:#cde2fb} .keymap .b2t{fill:#ffd9c7}
+.keymap .arrow{stroke:#fff;stroke-width:11} .keymap .arrowhead{fill:#fff}
+.chartbox{max-width:760px;margin:18px auto 6px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 10px 6px}
+.chart{display:block;width:100%;height:auto;overflow:visible}
+.chart .grid{stroke:var(--rule);stroke-width:1} .chart .axis,.chart .tickmark{stroke:var(--axis);stroke-width:1}
+.chart .tick{font-size:11.5px;fill:var(--muted)} .chart .val{font-size:12px;fill:var(--ink2);font-variant-numeric:tabular-nums}
+.chart .end{font-size:12.5px;fill:var(--ink);font-weight:600} .chart .key.s1{fill:var(--s1)} .chart .key.s2{fill:var(--s2)}
+.chart .line{fill:none;stroke-width:2;stroke-linejoin:round} .chart .line.s1{stroke:var(--s1)} .chart .line.s2{stroke:var(--s2)}
+.chart .dot{stroke:var(--surface);stroke-width:2} .chart .dot.s1{fill:var(--s1)} .chart .dot.s2{fill:var(--s2)}
+.chart .hit{fill:transparent} .chart .pt:hover .dot{r:7}
+.chart .note-line{stroke:var(--axis);stroke-width:1;stroke-dasharray:3 3} .chart .note{font-size:11px;fill:var(--muted)}
+.tablewrap{overflow-x:auto;max-width:900px;margin:14px auto}
+table{border-collapse:collapse;font-size:.86rem;width:100%;min-width:640px}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:bottom}
+thead th{font-weight:600;color:var(--ink2);border-bottom:1px solid var(--axis)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums} td.strong{font-weight:700}
+th.yr{vertical-align:top;font-variant-numeric:tabular-nums} tr.first td,tr.first th{border-top:1px solid var(--axis)}
+table.plain{min-width:560px} table.plain td{vertical-align:top}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;border:1px solid rgba(128,128,128,.5);vertical-align:-1px}
+.legend{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.84rem;color:var(--ink2);max-width:none;margin:8px 0 0}
+.viewer{margin:20px 0;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:12px}
+.viewer .bar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-bottom:10px}
+.viewer .grp{display:flex;flex-wrap:wrap;gap:4px}
+.viewer button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--axis);background:transparent;color:var(--ink);border-radius:5px;cursor:pointer;font-variant-numeric:tabular-nums}
+.viewer button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.viewer button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.viewer .hint{font-size:.84rem;color:var(--ink2);margin:8px 0 0;max-width:none}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin:20px 0}
+.strip figure{margin:0;position:relative} .strip figcaption{position:absolute;left:8px;top:8px;margin:0;background:rgba(0,0,0,.7);color:#fff;padding:1px 8px;border-radius:4px;font-weight:600;font-variant-numeric:tabular-nums}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin:20px 0} .trio figure{margin:0}
+.swipe{display:none;font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto;border-radius:4px} .scroll>a{display:block}
+@media (max-width:760px){.year .scroll img,#viewer .scroll img,.scroll>.keymap{min-width:900px} .scroll>.chart{min-width:620px} figure.narrow .scroll img,.trio .scroll img{min-width:0} .swipe{display:block}}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<main>
+<header class="col">
+<p class="meta">Botany · weeding · a second look at <a href="https://coolum001.github.io/wpatch.html">An eco-history in images</a></p>
+<h1>An eco-history in images, revisited</h1>
+<p class="meta">Photographs and original commentary: Don Cameron. Image processing and revised commentary: Claude, October 2026.</p>
+<p class="lede">The seven aerial photographs of the Stumers Creek weeding patch have been lined up on one grid, colour-balanced, contrast-stretched and given a false-colour treatment, and the original commentary has been checked against the result. Most of it holds. The 1988 and 1994 readings change, the 2002 reading turns out to be more than that photo can carry, and the sign adds a fact the photos cannot show.</p>
+</header>
+<nav><a href="#findings">Findings</a><a href="#orientation">Orientation</a><a href="#compare">Compare years</a><a href="#years">Year by year</a><a href="#closeup">One piece of ground</a><a href="#method">What the enhancement adds</a><a href="#numbers">Numbers</a><a href="#limits">Limits and next steps</a></nav>
+
+<h2 id="findings">What changes in the reading</h2>
+<ol>
+<li><strong>1988 was further along than “about half”.</strong> Closed canopy already covered about three-quarters of the land behind the fore-dune, up from scattered shrubs in 1974. Colonisation of the open dune took at most fourteen years.</li>
+<li><strong>1988 to 1994 was thickening, not spreading.</strong> Canopy extent is the same within error; the canopy is denser and the glades smaller.</li>
+<li><strong>The fire is bracketed and its edge is mapped.</strong> It burnt the north block between the 1994 and 1996 photos and stopped at beach track 2. In 1996 the scorched trees were still standing; by 1999 they were gone.</li>
+<li><strong>The recovery was assisted.</strong> The sign records 2,800 trees planted in the burnt dune in 2000 and 2001. The 2022 canopy in the north block is partly that planting.</li>
+</ol>
+<p>The original conclusion stands: bush regeneration works and takes time. The photos put rough numbers on it. Open dune to closed canopy took under fourteen years the first time and no more than about twenty the second, and one fire undid it in between. That is two resets in fifty years, which fits the original page's doubt that this dune ever reaches a stable end state.</p>
+
+<div class="chartbox"><div class="scroll"><svg class="chart" viewBox="0 0 760 330" role="img" aria-label="Woody canopy cover of the north and south blocks at each photo date"><line class="grid" x1="46" x2="642" y1="290.0" y2="290.0"/><text class="tick" x="38" y="294.0" text-anchor="end">0%</text><line class="grid" x1="46" x2="642" y1="222.0" y2="222.0"/><text class="tick" x="38" y="226.0" text-anchor="end">25%</text><line class="grid" x1="46" x2="642" y1="154.0" y2="154.0"/><text class="tick" x="38" y="158.0" text-anchor="end">50%</text><line class="grid" x1="46" x2="642" y1="86.0" y2="86.0"/><text class="tick" x="38" y="90.0" text-anchor="end">75%</text><line class="grid" x1="46" x2="642" y1="18.0" y2="18.0"/><text class="tick" x="38" y="22.0" text-anchor="end">100%</text><line class="tickmark" x1="89.3" x2="89.3" y1="290" y2="295"/><line class="tickmark" x1="241.1" x2="241.1" y1="290" y2="295"/><line class="tickmark" x1="306.1" x2="306.1" y1="290" y2="295"/><line class="tickmark" x1="327.7" x2="327.7" y1="290" y2="295"/><line class="tickmark" x1="360.3" x2="360.3" y1="290" y2="295"/><line class="tickmark" x1="392.8" x2="392.8" y1="290" y2="295"/><line class="tickmark" x1="609.5" x2="609.5" y1="290" y2="295"/><text class="tick" x="89.3" y="308" text-anchor="middle">1974</text><text class="tick" x="241.1" y="308" text-anchor="middle">1988</text><text class="tick" x="306.1" y="308" text-anchor="middle">1994</text><text class="tick" x="327.7" y="320" text-anchor="middle">1996</text><text class="tick" x="360.3" y="308" text-anchor="middle">1999</text><text class="tick" x="392.8" y="320" text-anchor="middle">2002</text><text class="tick" x="609.5" y="308" text-anchor="middle">2022</text><line class="axis" x1="46" x2="642" y1="290" y2="290"/><line class="note-line" x1="381.9" x2="381.9" y1="18.0" y2="290"/><text class="note" x="387.9" y="30.0">2,800 trees planted</text><text class="note" x="387.9" y="44.0">2000–01 (sign)</text><polyline class="line s2" points="89.3,245.1 241.1,95.0 306.1,80.8 327.7,101.8 360.3,95.8 392.8,100.1 609.5,21.3"/><g class="pt"><circle class="hit" cx="89.3" cy="245.1" r="13"/><circle class="dot s2" cx="89.3" cy="245.1" r="5"/><title>South block, 1974: 16% woody canopy</title></g><text class="val" x="89.3" y="235.1" text-anchor="middle">16%</text><g class="pt"><circle class="hit" cx="241.1" cy="95.0" r="13"/><circle class="dot s2" cx="241.1" cy="95.0" r="5"/><title>South block, 1988: 72% woody canopy</title></g><g class="pt"><circle class="hit" cx="306.1" cy="80.8" r="13"/><circle class="dot s2" cx="306.1" cy="80.8" r="5"/><title>South block, 1994: 77% woody canopy</title></g><g class="pt"><circle class="hit" cx="327.7" cy="101.8" r="13"/><circle class="dot s2" cx="327.7" cy="101.8" r="5"/><title>South block, 1996: 69% woody canopy</title></g><g class="pt"><circle class="hit" cx="360.3" cy="95.8" r="13"/><circle class="dot s2" cx="360.3" cy="95.8" r="5"/><title>South block, 1999: 71% woody canopy</title></g><g class="pt"><circle class="hit" cx="392.8" cy="100.1" r="13"/><circle class="dot s2" cx="392.8" cy="100.1" r="5"/><title>South block, 2002: 70% woody canopy</title></g><text class="val" x="396.8" y="90.1" text-anchor="middle">70%</text><g class="pt"><circle class="hit" cx="609.5" cy="21.3" r="13"/><circle class="dot s2" cx="609.5" cy="21.3" r="5"/><title>South block, 2022: 99% woody canopy</title></g><text class="end" x="619.5" y="13.3"><tspan class="key s2">●</tspan> South block 99%</text><polyline class="line s1" points="89.3,255.5 241.1,77.6 306.1,96.3 327.7,236.1 360.3,255.5 392.8,240.0 609.5,24.8"/><g class="pt"><circle class="hit" cx="89.3" cy="255.5" r="13"/><circle class="dot s1" cx="89.3" cy="255.5" r="5"/><title>North block, 1974: 13% woody canopy</title></g><text class="val" x="89.3" y="275.5" text-anchor="middle">13%</text><g class="pt"><circle class="hit" cx="241.1" cy="77.6" r="13"/><circle class="dot s1" cx="241.1" cy="77.6" r="5"/><title>North block, 1988: 78% woody canopy</title></g><text class="val" x="241.1" y="67.6" text-anchor="middle">78%</text><g class="pt"><circle class="hit" cx="306.1" cy="96.3" r="13"/><circle class="dot s1" cx="306.1" cy="96.3" r="5"/><title>North block, 1994: 71% woody canopy</title></g><g class="pt"><circle class="hit" cx="327.7" cy="236.1" r="13"/><circle class="dot s1" cx="327.7" cy="236.1" r="5"/><title>North block, 1996: 20% woody canopy</title></g><text class="val" x="318.7" y="241.1" text-anchor="end">20%</text><g class="pt"><circle class="hit" cx="360.3" cy="255.5" r="13"/><circle class="dot s1" cx="360.3" cy="255.5" r="5"/><title>North block, 1999: 13% woody canopy</title></g><text class="val" x="360.3" y="275.5" text-anchor="middle">13%</text><g class="pt"><circle class="hit" cx="392.8" cy="240.0" r="13"/><circle class="dot s1" cx="392.8" cy="240.0" r="5"/><title>North block, 2002: 18% woody canopy</title></g><g class="pt"><circle class="hit" cx="609.5" cy="24.8" r="13"/><circle class="dot s1" cx="609.5" cy="24.8" r="5"/><title>North block, 2022: 98% woody canopy</title></g><text class="end" x="619.5" y="36.8"><tspan class="key s1">●</tspan> North block 98%</text></svg></div></div>
+<p class="col" style="font-size:.86rem;color:var(--ink2);font-family:system-ui,sans-serif">Share of each block classed as live woody canopy at each photo date. Lines only join the photo dates; nothing is known about the years between. Treat differences under about ten points as noise. Block outlines are on the map below, and the full breakdown is in <a href="#numbers">the table</a>.</p>
+
+<h2 id="orientation">Orientation</h2>
+<p class="swipe">On a narrow screen the wide images scroll sideways.</p>
+<p>Every image on this page is on the same grid as the 2022 photo: ocean at the top (east), north to the left. Stumers Creek is the northern boundary and the Council caravan park the southern one. The minor road from David Low Way and the foot track to the caravan park form the inland edge.</p>
+<div class="scroll"><div class="keymap"><img src="images/2022_enhanced.jpg" alt="2022 aerial photo of the weeding patch with the features named in the text labelled" width="2200" height="723">
+<svg viewBox="0 0 3653 1200" aria-hidden="true">
+<polygon class="blk b1" points="960,350 1850,350 1900,430 1895,520 1790,730 1730,750 1690,715 1640,675 1560,635 1500,615 1400,607 1300,617 1200,635 1100,640 1000,630 960,623"/><polygon class="blk b2" points="1960,350 2700,350 2700,952 1960,790"/>
+<g class="lab">
+<text x="1826" y="70" text-anchor="middle" class="big">Pacific Ocean · east is up</text>
+<text x="1400" y="455" text-anchor="middle" class="b1t">North block</text>
+<text x="2330" y="600" text-anchor="middle" class="b2t">South block</text>
+<text x="600" y="930" transform="rotate(44 600 930)" text-anchor="middle">Stumers Creek</text>
+<text x="455" y="520" text-anchor="middle">picnic area,</text><text x="455" y="570" text-anchor="middle">car park</text>
+<text x="1080" y="700" text-anchor="middle">minor road</text>
+<text x="1262" y="300">beach track 1</text>
+<text x="1975" y="300">beach track 2</text>
+<text x="2400" y="1040" transform="rotate(9 2400 1040)" text-anchor="middle">foot track to caravan park (under canopy)</text>
+<text x="3590" y="1050" text-anchor="end">caravan park</text>
+<text x="1560" y="1120" text-anchor="middle">David Low Way</text>
+<g transform="translate(120,120)"><line x1="210" y1="0" x2="20" y2="0" class="arrow"/><polygon points="0,0 56,-26 56,26" class="arrowhead"/><text x="230" y="20" class="big">north</text></g>
+</g></svg></div></div>
+<p class="col" style="font-size:.86rem;color:var(--ink2);font-family:system-ui,sans-serif">The 2022 photo with the names used in the text. The dashed outlines are the two blocks used for the cover figures. They are the parts of the patch that all seven photos cover, and they stop short of the frontal dune.</p>
+
+<h2 id="sign">The sign</h2>
+<figure class="narrow"><div class="scroll"><a href="images/sign.jpg"><img loading="lazy" src="images/sign.jpg" alt="Coolum Dune Restoration sign"></a></div><figcaption>The Coolum Dune Restoration sign, made after November 2001.</figcaption></figure>
+<p>The sign is evidence in its own right, and it changes how the later photos should be read. It says that “a number of devastating fires” went through in the previous eight years, which puts them between about 1993 and 2001. It says the community planted 2,200 trees in the dunal area “on the left” on 29 July 2000, and that Coolum State Primary School planted 600 more “on the right” on 5 November 2001. The species were horsetail she-oak, coast banksia and pandanus. “On the left” is the northern half of the patch.</p>
+<p>So the photos and the sign agree on the fire, and the sign adds two things the photos cannot show: there was more than one fire, and the burnt ground was replanted.</p>
+
+<h2 id="compare">Compare years on one grid</h2>
+<p>Because the photos are aligned, switching year keeps every road, track and tree line in place and only the vegetation changes. Pick a treatment, then step through the years.</p>
+<div class="viewer" id="viewer">
+<div class="bar"><div class="grp" role="group" aria-label="Year"><button type="button" data-year="1974" aria-pressed="false">1974</button><button type="button" data-year="1988" aria-pressed="false">1988</button><button type="button" data-year="1994" aria-pressed="true">1994</button><button type="button" data-year="1996" aria-pressed="false">1996</button><button type="button" data-year="1999" aria-pressed="false">1999</button><button type="button" data-year="2002" aria-pressed="false">2002</button><button type="button" data-year="2022" aria-pressed="false">2022</button></div>
+<div class="grp" role="group" aria-label="Treatment"><button type="button" data-mode="original" aria-pressed="false">As supplied</button><button type="button" data-mode="enhanced" aria-pressed="true">Enhanced</button><button type="button" data-mode="falsecolour" aria-pressed="false">False colour</button><button type="button" data-mode="cover" aria-pressed="false">Cover map</button></div></div>
+<div class="scroll"><img id="vimg" src="images/1994_enhanced.jpg" alt="1994, enhanced" width="2200" height="723"></div>
+<p class="hint" id="vhint"></p>
+<div id="vlegend" hidden><ul class="legend"><li><span class="sw" style="background:#1b5e20"></span>Woody canopy (live)</li><li><span class="sw" style="background:#9ccc65"></span>Low green cover</li><li><span class="sw" style="background:#a16238"></span>Dry, dead or burnt</li><li><span class="sw" style="background:#f5ecc8"></span>Bare sand / track</li><li><span class="sw" style="background:#283c6e"></span>Dark &amp; smooth (water, wet heath)</li><li><span class="sw" style="background:#3e3e3e"></span>No photo coverage</li></ul></div>
+</div>
+
+<h2 id="years">Year by year</h2>
+<p>Each entry shows the enhanced photo, the original reading in a grey box, and what the processed images support.</p>
+<section class="year" id="y1974">
+<h3><span class="yr">1974</span> Open dune, shrubs and vehicle tracks</h3>
+<figure class=""><div class="scroll"><a href="images/1974_enhanced.jpg"><img loading="lazy" src="images/1974_enhanced.jpg" alt="1974 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>1974, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/1974_original.jpg">as supplied</a> · <a href="images/1974_enhanced.jpg">enhanced</a> · <a href="images/1974_falsecolour.jpg">false colour</a> · <a href="images/1974_cover.png">cover map</a></p><p class="nums"><span><b>13%</b> woody canopy, north block</span><span><b>16%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict ok">Supported, with one point narrowed</span></p><p>Very few mature trees. The dark green area behind the fore-dunes is swamp, or maybe burn scars. The caravan park is rudimentary or under construction. Many foot or vehicle tracks along the dunes.</p></div>
+<p>Once the flat, greenish scan is balanced and stretched, the woody plants separate cleanly from the ground: they are isolated dark crowns, each with its own shadow, dotted over pale grass and sand. That is shrubs and small trees, not canopy. The cover map puts woody cover at roughly one-sixth of each block, and classes about a quarter of the north block as bare sand, most of it in a web of vehicle tracks. One wide track runs straight onto the beach where beach track 2 is today.</p>
+<p><strong>The dark area.</strong> It has no crown texture at all, it sits in the low ground inland of the dunes, and the enhanced image shows several sharp-edged, near-black pools of open water in and beside it. That favours wet heath or sedge swamp over a burn scar. A freshly burnt heath would look much the same in a colour photo, so the swamp reading is the better-supported one, not a certain one. Most of this area lies inland of the foot track, outside the weeding patch.</p>
+<p>The small red-brown patch with streaky edges beside the looped vehicle track in the north block is a different thing: it looks like a small recent burn or a patch of dead vegetation.</p>
+<p>The pale cleared ground at the right-hand edge is the caravan park site, which fits “under construction”.</p>
+</section><section class="year" id="y1988">
+<h3><span class="yr">1988</span> Closed canopy over most of the hind dune</h3>
+<figure class=""><div class="scroll"><a href="images/1988_enhanced.jpg"><img loading="lazy" src="images/1988_enhanced.jpg" alt="1988 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>1988, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/1988_original.jpg">as supplied</a> · <a href="images/1988_enhanced.jpg">enhanced</a> · <a href="images/1988_falsecolour.jpg">false colour</a> · <a href="images/1988_cover.png">cover map</a></p><p class="nums"><span><b>78%</b> woody canopy, north block</span><span><b>72%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict rev">Canopy extent revised upward</span></p><p>Forest covers about half the site, with areas of grassland remaining. Not many trees along the fore-dunes. Tracks along the dunes have decreased, maybe due to better fencing.</p></div>
+<p>The cover map classes about three-quarters of both blocks as woody canopy, up from about one-sixth in 1974. The blocks leave out the frontal dune, which is still grass, so “about half” is fair for the whole strip from road to beach but low for the land behind the fore-dune.</p>
+<p>What is left open is specific: grassy glades on the hind dune either side of beach track 2, and the fore-dune itself, where the enhanced image shows scattered dark shrubs but no tree line. The 1974 vehicle-track web has gone. In its place are a formed gravel road and two foot tracks to the beach, so the “fewer tracks” reading holds.</p>
+</section><section class="year" id="y1994">
+<h3><span class="yr">1994</span> Same extent, denser canopy</h3>
+<figure class=""><div class="scroll"><a href="images/1994_enhanced.jpg"><img loading="lazy" src="images/1994_enhanced.jpg" alt="1994 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>1994, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/1994_original.jpg">as supplied</a> · <a href="images/1994_enhanced.jpg">enhanced</a> · <a href="images/1994_falsecolour.jpg">false colour</a> · <a href="images/1994_cover.png">cover map</a></p><p class="nums"><span><b>71%</b> woody canopy, north block</span><span><b>77%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict rev">Partly revised</span></p><p>Tree cover has increased and has started to move closer to the fore-dunes. The caravan park has been completed.</p></div>
+<p>Measured extent barely changes from 1988: the north block reads slightly lower and the south block slightly higher, and both differences are inside the noise of the method. What does change is density. Crowns are larger and darker, the canopy has closed up, and the glades around beach track 2 have shrunk. In the south block the tree line has edged toward the fore-dune. So “denser, and a little closer to the beach” is better supported than “more extensive”.</p>
+<p>On the caravan park: the 1988 frame stops short of it, so these two photos cannot show it being completed between 1988 and 1994. The 1974 frame does reach it and shows cleared ground.</p>
+</section><section class="year" id="y1996">
+<h3><span class="yr">1996</span> After the fire: scorched trees still standing</h3>
+<figure class=""><div class="scroll"><a href="images/1996_enhanced.jpg"><img loading="lazy" src="images/1996_enhanced.jpg" alt="1996 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>1996, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/1996_original.jpg">as supplied</a> · <a href="images/1996_enhanced.jpg">enhanced</a> · <a href="images/1996_falsecolour.jpg">false colour</a> · <a href="images/1996_cover.png">cover map</a></p><p class="nums"><span><b>20%</b> woody canopy, north block</span><span><b>69%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict ok">Supported and sharpened</span></p><p>The northern end shows many burn scars and open areas with only grass cover. The southern half appears untouched by fire.</p></div>
+<p>The north block was unburnt forest in the 1994 photo, so the fire falls between these two photos. Live woody canopy in the north block drops from about 70% to about 20%; the south block is unchanged.</p>
+<p>Most of the burnt trees are still standing. They cast long shadows, so trunks and branches are intact, but their crowns are purplish-brown instead of green. Truly open grass is confined to the hind dune between the two beach tracks. In the false-colour version the north block is red-brown and magenta against the green of the south block.</p>
+<p>The burn edge is sharp, and it follows beach track 2 and the diagonal foot track that runs from it to the bend in the road. The tracks acted as the fire break, which is why the south block survived.</p>
+<p class="caveat">Caution for this year: tree crowns are brownish over the whole photo, including forest west of the road that was never burnt (film, season or low sun). The cover map therefore over-calls “dry or dead” outside the two blocks. The north-versus-south contrast is the reliable signal.</p><figure class=""><div class="scroll"><a href="images/1996_falsecolour.jpg"><img loading="lazy" src="images/1996_falsecolour.jpg" alt="1996 false-colour image"></a></div><figcaption>1996, false colour. Green is live foliage; red-brown and magenta are scorched crowns, dry grass and bare ground.</figcaption></figure>
+</section><section class="year" id="y1999">
+<h3><span class="yr">1999</span> The burnt canopy has gone</h3>
+<figure class=""><div class="scroll"><a href="images/1999_enhanced.jpg"><img loading="lazy" src="images/1999_enhanced.jpg" alt="1999 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>1999, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/1999_original.jpg">as supplied</a> · <a href="images/1999_enhanced.jpg">enhanced</a> · <a href="images/1999_falsecolour.jpg">false colour</a> · <a href="images/1999_cover.png">cover map</a></p><p class="nums"><span><b>13%</b> woody canopy, north block</span><span><b>71%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict ok">Supported; cause left open</span></p><p>The entire northern end is now largely treeless, even worse than 1996. Maybe trees killed or badly damaged by the fires in 1996 and later have died in the period to 1999.</p></div>
+<p>Woody canopy in the north block is down to about 13%. The scorched trees that stood in 1996 are no longer there: no crowns and no shadows. The ground is under low, mostly dry cover with scattered green shrubs or resprouts, which the false-colour image picks out as green specks on magenta.</p>
+<p>The sign says “a number of devastating fires” crossed the area in the eight years before it was made. A second fire between 1996 and 1999 is therefore at least as likely as slow death and collapse after the first one. The photos cannot tell these apart.</p>
+<p>A clump of live crowns survives in the north block, west of beach track 1. It is visible in 1996, 1999 and 2002. The burn edge along beach track 2 has not moved, and the south block is intact.</p><figure class=""><div class="scroll"><a href="images/1999_falsecolour.jpg"><img loading="lazy" src="images/1999_falsecolour.jpg" alt="1999 false-colour image"></a></div><figcaption>1999, false colour. This is the clearest single image of the burn boundary.</figcaption></figure>
+</section><section class="year" id="y2002">
+<h3><span class="yr">2002</span> Possibly the first regrowth; the weakest photo</h3>
+<figure class=""><div class="scroll"><a href="images/2002_enhanced.jpg"><img loading="lazy" src="images/2002_enhanced.jpg" alt="2002 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>2002, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/2002_original.jpg">as supplied</a> · <a href="images/2002_enhanced.jpg">enhanced</a> · <a href="images/2002_falsecolour.jpg">false colour</a> · <a href="images/2002_cover.png">cover map</a></p><p class="nums"><span><b>18%</b> woody canopy, north block</span><span><b>70%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict unc">Plausible, not demonstrated</span></p><p>There may be some recovery in the extreme northern part of the area, as burnt trees re-establish the leaf canopy. The centre part of the area is still bare.</p></div>
+<p>The cover map reads about 18% woody canopy in the north block against 13% in 1999. That difference is within the noise, and this is the lowest-resolution photo of the set (a third of the pixel width of the others, or less, with visible JPEG blocking), so it will not carry a firm claim either way.</p>
+<p>By eye, green shrubs are denser west of beach track 1 than in 1999, and there are more dark shrub-sized crowns between the tracks, so “maybe some recovery” is a fair reading. The 2,800 trees planted in July 2000 and November 2001 would be far too small to see.</p>
+<p>The minor road is black here and pale in 1999, so it appears to have been sealed between the two photos.</p>
+</section><section class="year" id="y2022">
+<h3><span class="yr">2022</span> Canopy over the whole patch</h3>
+<figure class=""><div class="scroll"><a href="images/2022_enhanced.jpg"><img loading="lazy" src="images/2022_enhanced.jpg" alt="2022 aerial photo, colour-balanced and contrast-enhanced, in the common frame"></a></div><figcaption>2022, enhanced. Grey is outside the photo. Click for full size.</figcaption></figure>
+<p class="views">Same frame, other treatments: <a href="images/2022_original.jpg">as supplied</a> · <a href="images/2022_enhanced.jpg">enhanced</a> · <a href="images/2022_falsecolour.jpg">false colour</a> · <a href="images/2022_cover.png">cover map</a></p><p class="nums"><span><b>98%</b> woody canopy, north block</span><span><b>99%</b> woody canopy, south block</span></p>
+<div class="was"><p class="tag">Original reading <span class="verdict ok">Supported</span></p><p>Twenty years later, the tree canopy has been re-established over almost all the area, including the fore-dunes. The track to the caravan park now has a canopy that almost hides the track.</p></div>
+<p>Both blocks read about 98% woody canopy. In the north block the canopy now runs to the dune crest. A narrow grassy strip remains along the front of the south block, and there are a few small gaps on the hind dune there. The foot track to the caravan park shows only as a faint line.</p>
+<p>The sign matters for how this is read: the north block was planted, so its recovery is assisted regeneration rather than natural regrowth alone. The photo cannot separate planted trees from self-sown ones.</p>
+</section>
+
+<h2 id="closeup">One piece of ground, seven dates</h2>
+<p>The hind dune of the north block between the two beach tracks, enlarged. The road is along the bottom edge and the beach is just above the top.</p>
+<div class="strip"><figure><a href="images/closeup_north_1974.jpg"><img loading="lazy" src="images/closeup_north_1974.jpg" alt="Close-up of the north block in 1974"></a><figcaption>1974</figcaption></figure><figure><a href="images/closeup_north_1988.jpg"><img loading="lazy" src="images/closeup_north_1988.jpg" alt="Close-up of the north block in 1988"></a><figcaption>1988</figcaption></figure><figure><a href="images/closeup_north_1994.jpg"><img loading="lazy" src="images/closeup_north_1994.jpg" alt="Close-up of the north block in 1994"></a><figcaption>1994</figcaption></figure><figure><a href="images/closeup_north_1996.jpg"><img loading="lazy" src="images/closeup_north_1996.jpg" alt="Close-up of the north block in 1996"></a><figcaption>1996</figcaption></figure><figure><a href="images/closeup_north_1999.jpg"><img loading="lazy" src="images/closeup_north_1999.jpg" alt="Close-up of the north block in 1999"></a><figcaption>1999</figcaption></figure><figure><a href="images/closeup_north_2002.jpg"><img loading="lazy" src="images/closeup_north_2002.jpg" alt="Close-up of the north block in 2002"></a><figcaption>2002</figcaption></figure><figure><a href="images/closeup_north_2022.jpg"><img loading="lazy" src="images/closeup_north_2022.jpg" alt="Close-up of the north block in 2022"></a><figcaption>2022</figcaption></figure></div>
+<p>1974 is shrubs on grass with a vehicle loop. 1988 and 1994 are forest closing around a glade. 1996 has the same trees standing but brown, with long shadows. In 1999 they are gone. 2002 is too soft to say much. 2022 is unbroken canopy.</p>
+
+<h2 id="method">What the enhancement adds</h2>
+<p>The photos are ordinary colour images saved as JPEGs, with no infrared band. Everything below works only with red, green and blue, which limits how far vegetation can be separated from its background.</p>
+<div class="trio">
+<figure class=""><div class="scroll"><a href="images/compare_1999_original.jpg"><img loading="lazy" src="images/compare_1999_original.jpg" alt="1999 detail as supplied"></a></div><figcaption>As supplied</figcaption></figure>
+<figure class=""><div class="scroll"><a href="images/compare_1999_enhanced.jpg"><img loading="lazy" src="images/compare_1999_enhanced.jpg" alt="1999 detail enhanced"></a></div><figcaption>Colour-balanced and contrast-stretched</figcaption></figure>
+<figure class=""><div class="scroll"><a href="images/compare_1999_falsecolour.jpg"><img loading="lazy" src="images/compare_1999_falsecolour.jpg" alt="1999 detail in false colour"></a></div><figcaption>False colour</figcaption></figure>
+</div>
+<p class="col" style="font-size:.86rem;color:var(--ink2);font-family:system-ui,sans-serif">The burn boundary at beach track 2 in 1999, three ways.</p>
+<div class="tablewrap"><table class="plain"><thead><tr><th>Step</th><th>What it does</th><th>Did it help?</th></tr></thead><tbody>
+<tr><td><b>Alignment</b></td><td>Each photo is rotated, scaled and sheared onto the 2022 grid, using road centre-lines, the straight reach of the creek, building corners and beach-track ends as common points.</td><td>The largest gain. It makes the year-to-year comparison and the block figures possible. Misfit is typically 5–10 pixels, which is probably a few metres on the ground.</td></tr>
+<tr><td><b>Colour balance</b></td><td>Each colour channel is stretched so the darkest shadow is near black and dry beach sand is near white.</td><td>Yes. It removes the yellow cast of 1996 and 2002, the blue of 1994 and the flat green of the 1974 scan, so greens can be compared between years.</td></tr>
+<tr><td><b>Local contrast</b></td><td>Brightness contrast is stretched area by area (CLAHE), with a light sharpen.</td><td>Yes. Crowns separate from their shadows and from the ground, and tracks and tree lines become crisp. It matters most for 1974 and 1994.</td></tr>
+<tr><td><b>Saturation</b></td><td>Colour strength raised by 30%.</td><td>A little. Green against brown reads faster. Pushing it further only amplifies film grain and JPEG blocks.</td></tr>
+<tr><td><b>False colour</b></td><td>A decorrelation stretch: the three colour bands are rotated to their principal components, each is stretched to the same spread, and the result is rotated back. Small colour differences become large ones.</td><td>Yes, for live against dead. It is the best view of the 1996 scorch and the 1999 burn boundary. Colours are computed per photo, so the same colour does not mean the same thing in two different years, and it is not an infrared image.</td></tr>
+<tr><td><b>Cover map</b></td><td>A classifier trained separately on each photo, from small areas picked by eye, assigns every pixel to one of five cover types using colour, brightness and texture.</td><td>Useful for putting rough numbers on canopy extent. It is only as good as the training areas, it counts crown shadow as canopy, and it is meaningless over the beach and sea.</td></tr>
+<tr><td><b>Tried and dropped</b></td><td>Forcing road asphalt to neutral grey; a brightness, greenness and texture composite; automatic clustering without training areas.</td><td>The asphalt correction introduced purple casts. The composite showed less than the decorrelation stretch. The automatic clusters split on light and shadow rather than on cover type.</td></tr>
+</tbody></table></div>
+
+<h2 id="numbers">Numbers</h2>
+<p>Percentage of each block in each cover class, from the cover maps. Woody canopy is the most reliable column. The split between “low green” and “dry, dead or burnt” depends heavily on season and film, and should not be compared between years.</p>
+<div class="tablewrap"><table class="cover"><thead><tr><th>Photo</th><th>Block</th><th class="num"><span class="sw" style="background:#1b5e20"></span>Woody canopy (live)</th><th class="num"><span class="sw" style="background:#9ccc65"></span>Low green cover</th><th class="num"><span class="sw" style="background:#a16238"></span>Dry, dead or burnt</th><th class="num"><span class="sw" style="background:#f5ecc8"></span>Bare sand / track</th><th class="num"><span class="sw" style="background:#283c6e"></span>Dark &amp; smooth (water, wet heath)</th></tr></thead><tbody><tr class="first"><th scope="row" rowspan="2" class="yr">1974</th><td>North</td><td class="num strong">13</td><td class="num">56</td><td class="num">6</td><td class="num">24</td><td class="num">1</td></tr><tr class=""><td>South</td><td class="num strong">16</td><td class="num">44</td><td class="num">11</td><td class="num">12</td><td class="num">16</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">1988</th><td>North</td><td class="num strong">78</td><td class="num">5</td><td class="num">16</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">72</td><td class="num">14</td><td class="num">14</td><td class="num">0</td><td class="num">0</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">1994</th><td>North</td><td class="num strong">71</td><td class="num">28</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">77</td><td class="num">16</td><td class="num">7</td><td class="num">0</td><td class="num">1</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">1996</th><td>North</td><td class="num strong">20</td><td class="num">17</td><td class="num">63</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">69</td><td class="num">18</td><td class="num">13</td><td class="num">0</td><td class="num">0</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">1999</th><td>North</td><td class="num strong">13</td><td class="num">4</td><td class="num">79</td><td class="num">4</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">71</td><td class="num">4</td><td class="num">25</td><td class="num">0</td><td class="num">0</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">2002</th><td>North</td><td class="num strong">18</td><td class="num">14</td><td class="num">67</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">70</td><td class="num">11</td><td class="num">20</td><td class="num">0</td><td class="num">0</td></tr><tr class="first"><th scope="row" rowspan="2" class="yr">2022</th><td>North</td><td class="num strong">98</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr><tr class=""><td>South</td><td class="num strong">99</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr></tbody></table></div>
+
+<h2 id="limits">Limits and next steps</h2>
+<ul>
+<li>The cover classes were trained by eye, by someone who has not walked the site. A dozen ground-checked points would firm them up or correct them.</li>
+<li>The alignment is a flat fit to photos that had already been cropped and rotated. It is not a survey-grade rectification, and it is weakest for 1974 and toward the frame edges.</li>
+<li>Only the year of each photo is known here. Season, tide and sun angle all differ and all affect colour.</li>
+<li>There are no photos between 1974 and 1988 or between 2002 and 2022, which are the two periods when the canopy formed. More dates from the Queensland aerial archive would show how fast it happened.</li>
+<li>Landsat has covered this coast since the late 1980s with an infrared band. The patch is only a small cluster of 30-metre Landsat pixels, but that should be enough for a burn index to date each fire far more closely than these photos can, and to trace the regrowth curve.</li>
+<li>Starting again from the georeferenced, uncropped archive images would remove the alignment step and its error altogether.</li>
+</ul>
+<footer class="col"><p class="meta">Processing script, transforms and cover figures are in the <code>processing</code> folder beside this page. Source photographs are those published on the original page.</p></footer>
+</main>
+<script>
+(function(){
+var v=document.getElementById('viewer'),img=document.getElementById('vimg'),hint=document.getElementById('vhint'),leg=document.getElementById('vlegend');
+var st={year:'1994',mode:'enhanced'};
+var names={original:'as supplied',enhanced:'enhanced',falsecolour:'false colour',cover:'cover map'};
+var hints={original:'The photo as published, only moved onto the common grid.',enhanced:'Colour-balanced, local contrast stretched, lightly sharpened.',falsecolour:'Green is live foliage. Red, magenta and orange are dry, dead, burnt or bare surfaces. Colours are not comparable between years.',cover:'Classes are trained per photo and are only meaningful on vegetated land, not over the beach or sea.'};
+function src(y,m){return 'images/'+y+'_'+m+(m==='cover'?'.png':'.jpg');}
+function draw(){img.src=src(st.year,st.mode);img.alt=st.year+', '+names[st.mode];hint.textContent=hints[st.mode]+' Left and right arrow keys step through the years.';leg.hidden=st.mode!=='cover';
+ v.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.year===st.year||b.dataset.mode===st.mode));});
+ var ys=['1974','1988','1994','1996','1999','2002','2022'];ys.forEach(function(y){var p=new Image();p.src=src(y,st.mode);});}
+v.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.year)st.year=b.dataset.year;if(b.dataset.mode)st.mode=b.dataset.mode;draw();});
+v.addEventListener('keydown',function(e){var ys=['1974','1988','1994','1996','1999','2002','2022'],i=ys.indexOf(st.year);if(e.key==='ArrowRight'&&i<ys.length-1){st.year=ys[i+1];draw();e.preventDefault();}if(e.key==='ArrowLeft'&&i>0){st.year=ys[i-1];draw();e.preventDefault();}});
+hint.textContent=hints.enhanced+' Left and right arrow keys step through the years.';
+})();
+</script>
+</body>
+</html>
